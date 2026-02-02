@@ -44,4 +44,10 @@ public class Module {
      */
     @OneToMany(mappedBy = "module", fetch = FetchType.LAZY)
     private List<Lesson> lessons = new ArrayList<>();
+
+    /**
+     * Квиз модуля
+     */
+    @OneToOne(mappedBy = "module", fetch = FetchType.LAZY)
+    private Quiz quiz;
 }
