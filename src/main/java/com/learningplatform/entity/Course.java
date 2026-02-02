@@ -4,7 +4,7 @@ import jakarta.persistence.*;
         import lombok.*;
 
         import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 @Entity
 @Table(name = "courses")
@@ -17,7 +17,8 @@ import java.util.List;
         "category",
         "modules",
         "enrollments",
-        "reviews"
+        "reviews",
+        "tags"
 })
 public class Course {
 
@@ -63,5 +64,16 @@ public class Course {
      */
     @OneToMany(mappedBy = "course", fetch = FetchType.LAZY)
     private List<CourseReview> reviews = new ArrayList<>();
+
+    /**
+     * Теги курса
+     */
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(
+            name = "course_tag",
+            joinColumns = @JoinColumn(name = "course_id"),
+            inverseJoinColumns = @JoinColumn(name = "tag_id")
+    )
+    private Set<Tag> tags = new HashSet<>();
 }
 

@@ -32,6 +32,8 @@ public class QuizService {
         QuizSubmission qs = new QuizSubmission();
         qs.setQuiz(quiz);
         qs.setStudent(student);
+        quiz.getQuizSubmissions().add(qs);
+        student.getQuizSubmissions().add(qs);
         qs.setScore(score);
         qs.setTakenAt(LocalDateTime.now());
 
