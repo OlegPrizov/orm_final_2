@@ -4,14 +4,14 @@ spring:
 
   datasource:
     url: jdbc:postgresql://localhost:5432/learning_platform
-    username: olegprizov
+    username: postgres
     password: postgres
     driver-class-name: org.postgresql.Driver
 
   jpa:
-    open-in-view: false   # 🔥 важно для задания (ловим LazyInitializationException)
+    open-in-view: false
     hibernate:
-      ddl-auto: update   # для разработки
+      ddl-auto: update
     show-sql: true
     properties:
       hibernate:
