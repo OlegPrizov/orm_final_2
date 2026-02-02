@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: learning-platform
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/learning_platform
+    username: olegprizov
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    open-in-view: false   # 🔥 важно для задания (ловим LazyInitializationException)
+    hibernate:
+      ddl-auto: update   # для разработки
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        jdbc:
+          time_zone: UTC
+
+  sql:
+    init:
+      mode: never
+
+logging:
+  level:
+    org.hibernate.SQL: debug
+    org.hibernate.orm.jdbc.bind: trace
