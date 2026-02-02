@@ -8,5 +8,4 @@
 - Spring Boot 3.x
 - Spring Data JPA / Hibernate
 - PostgreSQL
-- JWT
 - Maven
